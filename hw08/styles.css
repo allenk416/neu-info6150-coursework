@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+.country {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.country h2 {
+    color: #007bff;
+}
+
+.country p, .country li {
+    color: #555;
+}
+
+.subdivisions {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.subdivisions li {
+    margin-bottom: 10px;
+}
+
+.subdivisions li ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
