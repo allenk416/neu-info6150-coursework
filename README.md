@@ -21,9 +21,8 @@ browser events, form validation, dynamic DOM rendering, and the Fetch API.
 
 ## Course Final Project
 
-[Movie Finder](https://github.com/allenk416/FinalProject) is the final project
-for the same course. It is maintained separately and is not included in this
-collection.
+[Movie Finder](final-project/) is the final project for the same course. Its
+original public repository is [allenk416/FinalProject](https://github.com/allenk416/FinalProject).
 
 ## About This Collection
 
@@ -33,5 +32,5 @@ retained within this repository.
 
 These are classroom exercises. Login, borrowing, and form submission examples
 simulate interactions in the browser rather than providing backend services.
-In the preserved HW06 version, the borrowing handler references missing page
-elements. HW11 depends on an external API and has limited error handling.
+The Movie Finder snapshot uses a same-origin server-side API proxy design;
+search requires a deployed Node service and a server environment variable.

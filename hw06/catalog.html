@@ -28,12 +28,12 @@
         <div id="loginSection">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
-            <button onclick="login()">Login</button>
-            <button onclick="logout()">Logout</button>
-            <a href="library card.html">Register</a>
-            <a href="inquiries.html">Forgot Password</a>
+            <button id="loginButton" onclick="login()">Login</button>
+            <button id="logoutButton" onclick="logout()" hidden>Logout</button>
+            <a id="registerLink" href="library card.html">Register</a>
+            <a id="forgotPasswordLink" href="inquiries.html">Forgot Password</a>
         </div>
-    
+
         <section id="catalog">
             <article>
                 <h3>Book 1</h3>
@@ -44,11 +44,11 @@
                     <li><strong>Total Copies:</strong> 5</li>
                     <li><strong>Available Copies:</strong> 3</li>
                     <li>
-                        <button onclick="borrow(1, 3)">Borrow</button>
+                        <button id="borrowButton1" onclick="borrow(1, 3)">Borrow</button>
                     </li>
                 </ul>
             </article>
-    
+
             <article>
                 <h3>Book 2</h3>
                 <ul>
@@ -58,11 +58,11 @@
                     <li><strong>Total Copies:</strong> 8</li>
                     <li><strong>Available Copies:</strong> 0</li>
                     <li>
-                        <button onclick="borrow(2, 0)">Borrow</button>
+                        <button id="borrowButton2" onclick="borrow(2, 0)">Borrow</button>
                     </li>
                 </ul>
             </article>
-           
+
         </section>
 
         <section>
@@ -85,19 +85,22 @@
         var username;
         function login() {
             username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            
+            var passwordField = document.getElementById("password");
+            var password = passwordField.value;
+
             if (username.trim() === "" || password.trim() === "") {
             alert("Please enter both username and password.");
             return;
         }
-            
+
             isLoggedIn = true;
+            passwordField.value = "";
             updateLoginSection();
         }
 
         function logout() {
             isLoggedIn = false;
+            username = "";
             updateLoginSection();
         }
 
@@ -108,7 +111,11 @@
                 alert("Not available for borrowing.");
             } else {
                 alert("Borrow successful. Please go to the library to pick up the reserved book.");
-                document.getElementById("borrowButton" + bookNumber).innerHTML = "Borrowed";
+                var borrowButton = document.getElementById("borrowButton" + bookNumber);
+                if (borrowButton) {
+                    borrowButton.textContent = "Borrowed";
+                    borrowButton.disabled = true;
+                }
             }
         }
 
@@ -117,24 +124,24 @@
             var userInfoSpan = document.getElementById("userInfo");
 
             if (isLoggedIn) {
-                
-                userInfoSpan.innerHTML = "Logged in as: " + username; 
+
+                userInfoSpan.textContent = "Logged in as: " + username;
                 document.getElementById("username").style.display = "none";
                 document.getElementById("password").style.display = "none";
-                document.getElementsByTagName("button")[0].style.display = "none";
-                document.getElementsByTagName("button")[1].style.display = "inline-block"; 
-                document.getElementsByTagName("a")[4].style.display = "none";
-                document.getElementsByTagName("a")[5].style.display = "none"; 
+                document.getElementById("loginButton").hidden = true;
+                document.getElementById("logoutButton").hidden = false;
+                document.getElementById("registerLink").hidden = true;
+                document.getElementById("forgotPasswordLink").hidden = true;
             } else {
-                
-                userInfoSpan.innerHTML = "";
+
+                userInfoSpan.textContent = "";
 
                 document.getElementById("username").style.display = "inline-block";
                 document.getElementById("password").style.display = "inline-block";
-                document.getElementsByTagName("button")[0].style.display = "inline-block";
-                document.getElementsByTagName("button")[1].style.display = "none"; 
-                document.getElementsByTagName("a")[4].style.display = "inline-block";
-                document.getElementsByTagName("a")[5].style.display = "inline-block"; 
+                document.getElementById("loginButton").hidden = false;
+                document.getElementById("logoutButton").hidden = true;
+                document.getElementById("registerLink").hidden = false;
+                document.getElementById("forgotPasswordLink").hidden = false;
             }
         }
 

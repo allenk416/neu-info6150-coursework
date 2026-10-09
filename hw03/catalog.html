@@ -67,10 +67,10 @@
         <div id="loginSection">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
-            <button onclick="login()">Login</button>
-            <button onclick="logout()">logout</button>
-            <a href="library card.html">Register</a>
-            <a href="inquiries.html">Forgot Password</a>
+            <button id="loginButton" onclick="login()">Login</button>
+            <button id="logoutButton" onclick="logout()" hidden>Logout</button>
+            <a id="registerLink" href="library card.html">Register</a>
+            <a id="forgotPasswordLink" href="inquiries.html">Forgot Password</a>
         </div>
 
         <table>
@@ -114,8 +114,9 @@
         var username;
         function login() {
             username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            
+            var passwordField = document.getElementById("password");
+            var password = passwordField.value;
+
             if (username.trim() === "" || password.trim() === "") {
             alert("Please enter both username and password.");
             return;
@@ -123,11 +124,13 @@
             // Add your login logic here
             // For simplicity, this example assumes successful login for any input
             isLoggedIn = true;
+            passwordField.value = "";
             updateLoginSection();
         }
 
         function logout() {
             isLoggedIn = false;
+            username = "";
             updateLoginSection();
         }
 
@@ -138,7 +141,12 @@
                 alert("Not available for borrowing.");
             } else {
                 alert("Borrow successful. Please go to the library to pick up the reserved book.");
-                document.getElementById("borrowButton" + bookNumber).innerHTML = "Borrowed";
+                const borrowCell = document.getElementById("borrowButton" + bookNumber);
+                const borrowButton = borrowCell && borrowCell.querySelector("button");
+                if (borrowButton) {
+                    borrowButton.textContent = "Borrowed";
+                    borrowButton.disabled = true;
+                }
             }
         }
 
@@ -148,23 +156,22 @@
 
             if (isLoggedIn) {
                 // If logged in, display user information and remove login input fields and buttons
-                userInfoSpan.innerHTML = "Logged in as: " + username; // Replace with actual user info
-                document.getElementById("username").style.display = "none";
-                document.getElementById("password").style.display = "none";
-                document.getElementsByTagName("button")[0].style.display = "none";
-                document.getElementsByTagName("button")[1].style.display = "inline-block"; // Assuming the login button is the first button
-                document.getElementsByTagName("a")[4].style.display = "none";
-                document.getElementsByTagName("a")[5].style.display = "none"; // Assuming the registration link is the first link
+                userInfoSpan.textContent = "Logged in as: " + username;
+                document.getElementById("username").hidden = true;
+                document.getElementById("password").hidden = true;
+                document.getElementById("loginButton").hidden = true;
+                document.getElementById("logoutButton").hidden = false;
+                document.getElementById("registerLink").hidden = true;
+                document.getElementById("forgotPasswordLink").hidden = true;
             } else {
                 // If not logged in, display login input fields and buttons and remove user information
-                userInfoSpan.innerHTML = "";
-
-                document.getElementById("username").style.display = "inline-block";
-                document.getElementById("password").style.display = "inline-block";
-                document.getElementsByTagName("button")[0].style.display = "inline-block";
-                document.getElementsByTagName("button")[1].style.display = "none"; // Assuming the login button is the first button
-                document.getElementsByTagName("a")[4].style.display = "inline-block";
-                document.getElementsByTagName("a")[5].style.display = "inline-block"; // Assuming the registration link is the first link
+                userInfoSpan.textContent = "";
+                document.getElementById("username").hidden = false;
+                document.getElementById("password").hidden = false;
+                document.getElementById("loginButton").hidden = false;
+                document.getElementById("logoutButton").hidden = true;
+                document.getElementById("registerLink").hidden = false;
+                document.getElementById("forgotPasswordLink").hidden = false;
             }
         }
 

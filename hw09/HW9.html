@@ -71,7 +71,7 @@
 
   <div id="zipcode-container" style="display: none;">
     <label for="zipcode">Zipcode:</label>
-    <input type="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
+    <input type="text" id="zipcode" name="zipcode" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" disabled>
     <div class="error" id="zipcode-error"></div>
   </div>
 
@@ -94,10 +94,16 @@
 <script>
   document.getElementById('us-resident').addEventListener('change', function() {
     const zipcodeContainer = document.getElementById('zipcode-container');
+    const zipcodeInput = document.getElementById('zipcode');
     if (this.checked) {
       zipcodeContainer.style.display = 'block';
+      zipcodeInput.disabled = false;
+      zipcodeInput.required = true;
     } else {
       zipcodeContainer.style.display = 'none';
+      zipcodeInput.disabled = true;
+      zipcodeInput.required = false;
+      zipcodeInput.value = '';
     }
   });
 
@@ -107,7 +113,7 @@
     const name = document.getElementById('name').value;
     const yearOfBirth = document.getElementById('year-of-birth').value;
     const usResident = document.getElementById('us-resident').checked;
-    const zipcode = document.getElementById('zipcode').value;
+    const zipcode = document.getElementById('zipcode').value.trim();
     const password = document.getElementById('password').value;
     const pizzaType = document.getElementById('pizza-type').value;
 
@@ -128,7 +134,7 @@
       hasError = true;
     }
 
-    if (usResident && (zipcode.length !== 5 || isNaN(zipcode))) {
+    if (usResident && !/^\d{5}$/.test(zipcode)) {
       document.getElementById('zipcode-error').textContent = 'Zipcode must be a 5-digit number';
       hasError = true;
     }

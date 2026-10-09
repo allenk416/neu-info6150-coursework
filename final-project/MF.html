@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search movie titles and browse a curated movie collection.">
+  <title>Movie Search | Movie Finder</title>
+  <link rel="stylesheet" href="s2.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <a class="logo" href="index.html">Movie Finder</a>
+      <nav aria-label="Main navigation">
+        <ul class="menu-list">
+          <li class="menu-list-item"><a href="index.html">Home</a></li>
+          <li class="menu-list-item"><a href="popular.html">Popular</a></li>
+          <li class="menu-list-item"><a href="trending.html">Trending</a></li>
+        </ul>
+      </nav>
+      <button class="toggle" type="button" aria-label="Toggle light theme" aria-pressed="false">
+        <i class="fas fa-moon toggle-icon" aria-hidden="true"></i>
+        <i class="fas fa-sun toggle-icon" aria-hidden="true"></i>
+        <span class="toggle-ball" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="search-page">
+    <h1>Find a movie</h1>
+    <form class="search-container" id="movie-search-form">
+      <label class="visually-hidden" for="movie-search">Movie title</label>
+      <input type="search" id="movie-search" name="searchTerm" placeholder="Search for a movie" maxlength="100" required>
+      <button id="search-btn" type="submit">Search</button>
+    </form>
+    <section id="movie-display" aria-live="polite" aria-label="Search results"></section>
+  </main>
+
+  <footer id="footer">Movie Finder · Northeastern INFO 6150 course project</footer>
+  <script src="MF_script.js" defer></script>
+</body>
+</html>

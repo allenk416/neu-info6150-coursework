@@ -1,0 +1,12 @@
+{
+  "name": "movie-finder-course-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Movie Finder course project and same-origin API proxy",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

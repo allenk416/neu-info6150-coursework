@@ -1,0 +1,246 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>moviefinder</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">moviefinder</h1>
+            </div>
+
+            <form class="search-container" id="movie-search-form">
+                <label class="visually-hidden" for="movie-search">Search for movies, series, and TV shows</label>
+                <input type="search" id="movie-search" name="searchTerm" placeholder="Search for movies, series, and TV shows" maxlength="100" required>
+                <button id="search-btn" type="submit" aria-label="Search">Search</button>
+                <!-- <div id="movie-display"></div> -->
+            </form>
+
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active"><a href="index.html">Home</a></li>
+                    <li class="menu-list-item"><a href="popular.html">Popular</a></li>
+                    <li class="menu-list-item"><a href="trending.html">Trending</a></li>
+
+                </ul>
+            </div>
+
+                <button class="toggle" type="button" aria-label="Toggle light theme" aria-pressed="false">
+                    <i class="fas fa-moon toggle-icon" aria-hidden="true"></i>
+                    <i class="fas fa-sun toggle-icon" aria-hidden="true"></i>
+                    <span class="toggle-ball" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/mm.jpeg');">
+                <img class="featured-title" src="img/mm.jpeg" alt="">
+                <p class="featured-desc"> An anonymous young man unleashes a campaign of vengeance against the corrupt leaders who murdered his mother and continue to systematically victimize the poor and powerless.</p>
+
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/avatar.jpeg" alt="">
+                            <p class="movie-list-item-desc">Avatar: The way of waters - Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/mm.jpeg" alt="">
+                            <p class="movie-list-item-desc"> Monkey Man - A young man seeks revenge against the corrupt leaders responsible for his mother's.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/MIreckoning.jpeg" alt="">
+                            <p class="movie-list-item-desc">Mission Impossible: Dead Reckoning Part One - Ethan Hunt and his IMF team must track down a dangerous weapon.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/dune-2.jpeg" alt="">
+                            <p class="movie-list-item-desc">Dune: Part Two- Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/civilwar.jpeg" alt="">
+                            <p class="movie-list-item-desc">Civil War (2024)- A journey across a dystopian future America, following a team of military </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/scoop.jpeg" alt="">
+                            <p class="movie-list-item-desc">Scoop - How the BBC obtained the bombshell interview with Prince Andrew about his friendship with convicted sex offender</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/immaculate.jpeg" alt="">
+                            <p class="movie-list-item-desc">Immaculate - Cecilia, a woman of devout faith, is warmly welcomed to the picture-perfect Italian countryside.</p>
+
+                        </div>
+                    </div>
+                    <button class="arrow" type="button" aria-label="Show more movies"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">POPULAR</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/kungfu.jpeg" alt="">
+                            <p class="movie-list-item-desc"> Kung Fu Panda 4- After Po is tapped to become the Spiritual Leader of the Valley of Peace, he needs to find and train a new Dragon Warrior.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/arthur.jpeg" alt="">
+                            <p class="movie-list-item-desc"> Arthur the King - An adventure racer adopts a stray dog named Arthur to join him in an epic endurance race.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/kingdom.jpeg" alt="">
+                            <p class="movie-list-item-desc">Kingdom of the Planet of the Apes- Many years after the reign of Caesar, a young ape goes on a journey that will lead him to question </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/thebee.jpeg" alt="The Beekeeper">
+                            <p class="movie-list-item-desc">The Beekeeper- One man's brutal campaign for vengeance takes on national stakes after he is revealed to be a former operative</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/challengers.jpeg" alt="">
+                            <p class="movie-list-item-desc"> Challengers- Tashi, a former tennis prodigy turned coach, turned her husband into a champion.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/god.jpeg" alt="">
+                            <p class="movie-list-item-desc">Godzilla x Kong: The New Empire- Two ancient titans, Godzilla and Kong, clash in an epic battle </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/furious.jpeg" alt="">
+                            <p class="movie-list-item-desc">Furiosa: A Mad Max Saga- The origin story of renegade warrior Furiosa before her encounter and teamup with Mad Max.</p>
+
+                        </div>
+                    </div>
+                    <button class="arrow" type="button" aria-label="Show more movies"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('image/top-gun.jpeg');">
+                <img class="featured-title" src="image/top-gun.jpeg" alt="">
+                <p class="featured-desc">After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.</p>
+
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title"> Trending</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/wakanda.jpeg" alt="">
+                            <p class="movie-list-item-desc">Black Panther: Wakanda Forever- The people of Wakanda fight to protect their home from intervening world powers </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/black.jpeg" alt="">
+                            <p class="movie-list-item-desc">Black Adam- Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/glass.jpeg" alt="">
+                            <p class="movie-list-item-desc">Glass Onion: A Knives Out Mystery- Tech billionaire Miles Bron invites his friends for a getaway on his private Greek island.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/smile.jpeg" alt="">
+                            <p class="movie-list-item-desc">Smile- After witnessing a bizarre, traumatic incident involving a patient, a psychiatrist becomes increasingly convinced</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/menu.jpeg" alt="">
+                            <p class="movie-list-item-desc">The Menu- A young couple travels to a remote island to eat at an exclusive restaurant </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/all.jpeg" alt="">
+                            <p class="movie-list-item-desc"> All Quiet on the Western Front- A young German soldier's terrifying experiences and distress.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/enola.jpeg" alt="">
+                            <p class="movie-list-item-desc">Enola Holmes 2- Now a detective-for-hire, Enola Holmes takes on her first official case to find a missing girl</p>
+
+                        </div>
+                    </div>
+                    <button class="arrow" type="button" aria-label="Show more movies"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">TOP</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/panthar.jpeg" alt="">
+                            <p class="movie-list-item-desc"> Black Panther- T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/Oppenheimer.jpeg" alt="">
+                            <p class="movie-list-item-desc">Oppenheimer- The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb. </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/flower.jpeg" alt="">
+                            <p class="movie-list-item-desc">Killers of the Flower Moon- When oil is discovered in 1920s Oklahoma under Osage Nation land</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/John.jpeg" alt="">
+                            <p class="movie-list-item-desc">John Wick: Chapter 4- John Wick uncovers a path to defeating The High Table.</p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/Guardians.jpeg" alt="">
+                            <span class="movie-list-item-title">Her</span>
+                            <p class="movie-list-item-desc">Guardians of the Galaxy Vol. 3- Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe  </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/dragon.jpeg" alt="">
+                            <p class="movie-list-item-desc">Dungeons & Dragons: Honour Among Thieves- A charming thief and a band of unlikely adventurers embark on an epic quest  </p>
+
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="image/godzilla.jpeg" alt="">
+                            <p class="movie-list-item-desc">Godzilla Minus One- Post war Japan is at its lowest point when a new crisis emerges in the form of a giant monster</p>
+
+                        </div>
+                    </div>
+                    <button class="arrow" type="button" aria-label="Show more movies"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <footer id="footer">
+            &copy; moviefinder.com
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
