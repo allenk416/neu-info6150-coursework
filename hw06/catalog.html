@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Catalog - Vallejo Public Library</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="library card.html">Library Card Form</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Library Catalog</h2>
+        <div id="userInfo"></div>
+        <div id="loginSection">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <button onclick="logout()">Logout</button>
+            <a href="library card.html">Register</a>
+            <a href="inquiries.html">Forgot Password</a>
+        </div>
+    
+        <section id="catalog">
+            <article>
+                <h3>Book 1</h3>
+                <ul>
+                    <li><strong>Author:</strong> Author 1</li>
+                    <li><strong>Publication Year:</strong> 2020</li>
+                    <li><strong>Publisher:</strong> Publisher A</li>
+                    <li><strong>Total Copies:</strong> 5</li>
+                    <li><strong>Available Copies:</strong> 3</li>
+                    <li>
+                        <button onclick="borrow(1, 3)">Borrow</button>
+                    </li>
+                </ul>
+            </article>
+    
+            <article>
+                <h3>Book 2</h3>
+                <ul>
+                    <li><strong>Author:</strong> Author 2</li>
+                    <li><strong>Publication Year:</strong> 2018</li>
+                    <li><strong>Publisher:</strong> Publisher B</li>
+                    <li><strong>Total Copies:</strong> 8</li>
+                    <li><strong>Available Copies:</strong> 0</li>
+                    <li>
+                        <button onclick="borrow(2, 0)">Borrow</button>
+                    </li>
+                </ul>
+            </article>
+           
+        </section>
+
+        <section>
+            <h2>Search Catalog</h2>
+            <form id="catalogSearchForm" onsubmit="return validateSearch()">
+                <label for="searchQuery">Search for a Book:</label>
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="Enter book title or author">
+                <button type="submit">Search</button>
+                <p id="searchError"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vallejo Public Library. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var isLoggedIn = false;
+        var username;
+        function login() {
+            username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            if (username.trim() === "" || password.trim() === "") {
+            alert("Please enter both username and password.");
+            return;
+        }
+            
+            isLoggedIn = true;
+            updateLoginSection();
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            updateLoginSection();
+        }
+
+        function borrow(bookNumber, availableCopies) {
+            if (!isLoggedIn) {
+                alert("Please log in first.");
+            } else if (availableCopies === 0) {
+                alert("Not available for borrowing.");
+            } else {
+                alert("Borrow successful. Please go to the library to pick up the reserved book.");
+                document.getElementById("borrowButton" + bookNumber).innerHTML = "Borrowed";
+            }
+        }
+
+        function updateLoginSection() {
+            var loginSection = document.getElementById("loginSection");
+            var userInfoSpan = document.getElementById("userInfo");
+
+            if (isLoggedIn) {
+                
+                userInfoSpan.innerHTML = "Logged in as: " + username; 
+                document.getElementById("username").style.display = "none";
+                document.getElementById("password").style.display = "none";
+                document.getElementsByTagName("button")[0].style.display = "none";
+                document.getElementsByTagName("button")[1].style.display = "inline-block"; 
+                document.getElementsByTagName("a")[4].style.display = "none";
+                document.getElementsByTagName("a")[5].style.display = "none"; 
+            } else {
+                
+                userInfoSpan.innerHTML = "";
+
+                document.getElementById("username").style.display = "inline-block";
+                document.getElementById("password").style.display = "inline-block";
+                document.getElementsByTagName("button")[0].style.display = "inline-block";
+                document.getElementsByTagName("button")[1].style.display = "none"; 
+                document.getElementsByTagName("a")[4].style.display = "inline-block";
+                document.getElementsByTagName("a")[5].style.display = "inline-block"; 
+            }
+        }
+
+        updateLoginSection();
+
+        function validateSearch() {
+            var searchQuery = document.getElementById("searchQuery").value;
+            var searchError = document.getElementById("searchError");
+
+            if (searchQuery.trim() === "") {
+                searchError.innerText = "Please enter a book title or author.";
+                return false;
+            } else {
+                searchError.innerText = "";
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

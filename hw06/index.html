@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallejo Public Library</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="library card.html">Library Card Form</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Address and Opening Hours</h2>
+            <p>505 Santa Clara Street</p>
+            <p>Vallejo, CA 94590</p>
+            <p>Monday - Thursday 9:00 AM - 8:00 PM</p>
+            <p>Friday - Saturday 9:00 AM - 5:00 PM</p>
+            <p>Sunday 12:00 PM - 5:00 PM</p>
+        </section>
+
+        <section>
+            <h2>Latest News</h2>
+            <ul>
+                <li>New books added to the library</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Search Catalog</h2>
+            <form id="catalogSearchForm" onsubmit="return validateSearch()">
+                <label for="searchQuery">Search for a Book:</label>
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="Enter book title or author">
+                <button type="submit">Search</button>
+                <p id="searchError"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vallejo Public Library. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateSearch() {
+            var searchQuery = document.getElementById("searchQuery").value;
+            var searchError = document.getElementById("searchError");
+
+            if (searchQuery.trim() === "") {
+                searchError.innerText = "Please enter a book title or author.";
+                return false;
+            } else {
+                searchError.innerText = "";
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
