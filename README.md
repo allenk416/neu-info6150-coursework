@@ -22,8 +22,8 @@ browser events, form validation, dynamic DOM rendering, and the Fetch API.
 ## Course Final Project
 
 [Movie Finder](https://github.com/allenk416/FinalProject) is the final project
-for the same course. It remains in its original repository while API credential
-issues are addressed; its files and history are not included here.
+for the same course. It is maintained separately and is not included in this
+collection.
 
 ## About This Collection
 
