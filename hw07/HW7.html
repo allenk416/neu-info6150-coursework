@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaucoma Information</title>
+    <style>
+        body {
+            font-size: 1.5em;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            margin: 2em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        body.high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1em;
+            margin: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Glaucoma Information</h1>
+</header>
+
+<section>
+    <h2>What is Glaucoma?</h2>
+    <p>Glaucoma is an eye condition where the optic nerve is damaged due to increased intraocular pressure. It can lead to vision loss and blindness.</p>
+</section>
+
+<section>
+    <h2>Recognizing Glaucoma</h2>
+    <p>Glaucoma often has no early symptoms, making regular eye exams crucial. Measurement of intraocular pressure and optic nerve examination are key for identification.</p>
+</section>
+
+<section>
+    <h2>Caring for Yourself</h2>
+    <p>If you have glaucoma, regular eye check-ups, following your doctor's advice, and maintaining a healthy lifestyle are essential.</p>
+</section>
+
+<script>
+    function toggleHighContrast() {
+        document.body.classList.toggle('high-contrast');
+    }
+</script>
+
+<section>
+    <button onclick="toggleHighContrast()">Toggle High Contrast Mode</button>
+</section>
+
+</body>
+</html>
