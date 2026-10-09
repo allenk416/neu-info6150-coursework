@@ -29,16 +29,7 @@ collection.
 
 The original assignments are preserved in separate folders, including similar
 code from different stages of the course. Their original Git commits are
-retained, and the original repositories remain available:
-
-[HW1](https://github.com/allenk416/INFO6150-HW1) ·
-[HW2](https://github.com/allenk416/INFO6150-HW2) ·
-[HW3](https://github.com/allenk416/INFO6150-HW3) ·
-[HW6](https://github.com/allenk416/INFO6150-HW6) ·
-[HW7](https://github.com/allenk416/INFO6150-HW7) ·
-[HW8](https://github.com/allenk416/INFO6150-HW8) ·
-[HW9](https://github.com/allenk416/INFO6150-HW9) ·
-[HW11](https://github.com/allenk416/INFO6150-HW11).
+retained within this repository.
 
 These are classroom exercises. Login, borrowing, and form submission examples
 simulate interactions in the browser rather than providing backend services.
