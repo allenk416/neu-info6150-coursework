@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Card Form - Vallejo Public Library</title>
+    <style>
+        #confirmationMessage {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Vallejo Public Library</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="library card.html">Library Card Form</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Library Card Application Form</h2>
+        <div id="confirmationMessage"></div>
+
+        <form id="libraryCardForm" onsubmit="validateForm(); return false;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <input type="submit" value="Submit Application">
+        </form>
+
+        <script>
+            function validateForm() {
+                var name = document.getElementById("name").value;
+                var age = document.getElementById("age").value;
+                var photo = document.getElementById("photo").value;
+
+                // Check if any of the required fields are empty
+                if (name === "" || age === "" || photo === "") {
+                    // Display an error message
+                    document.getElementById("confirmationMessage").innerHTML = "There is an error in the information. Please check.";
+                } else {
+                    // Clear previous error message
+                    document.getElementById("confirmationMessage").innerHTML = "";
+                    // Display a confirmation message
+                    document.getElementById("confirmationMessage").innerHTML = "The form has been submitted. Please wait for review.";
+                }
+            }
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vallejo Public Library. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
