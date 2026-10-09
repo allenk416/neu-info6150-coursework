@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizza Registration</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  button {
+    background-color: #5b9fd3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover {
+    background-color: #5b9fd3;
+  }
+</style>
+</head>
+<body>
+<form id="registration-form">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required minlength="3">
+  <div class="error" id="name-error"></div>
+
+  <label for="year-of-birth">Year of Birth:</label>
+  <input type="number" id="year-of-birth" name="year-of-birth" required min="1901" max="2099">
+  <div class="error" id="year-of-birth-error"></div>
+
+  <label><input type="checkbox" id="us-resident" name="us-resident"> Do you live in the United States?</label>
+
+  <div id="zipcode-container" style="display: none;">
+    <label for="zipcode">Zipcode:</label>
+    <input type="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
+    <div class="error" id="zipcode-error"></div>
+  </div>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required minlength="8">
+  <div class="error" id="password-error"></div>
+
+  <label for="pizza-type">Preferred type of pizza:</label>
+  <select id="pizza-type" name="pizza-type" required>
+    <option value="">Select</option>
+    <option value="with-pineapple">With pineapple</option>
+    <option value="without-pineapple">Without pineapple</option>
+    <option value="no-pizza">I do not like pizza</option>
+  </select>
+  <div class="error" id="pizza-type-error"></div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById('us-resident').addEventListener('change', function() {
+    const zipcodeContainer = document.getElementById('zipcode-container');
+    if (this.checked) {
+      zipcodeContainer.style.display = 'block';
+    } else {
+      zipcodeContainer.style.display = 'none';
+    }
+  });
+
+  document.getElementById('registration-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const yearOfBirth = document.getElementById('year-of-birth').value;
+    const usResident = document.getElementById('us-resident').checked;
+    const zipcode = document.getElementById('zipcode').value;
+    const password = document.getElementById('password').value;
+    const pizzaType = document.getElementById('pizza-type').value;
+
+    const errorElements = document.querySelectorAll('.error');
+    errorElements.forEach(function(error) {
+      error.textContent = '';
+    });
+
+    let hasError = false;
+
+    if (name.length < 3) {
+      document.getElementById('name-error').textContent = 'Name must be at least 3 characters long';
+      hasError = true;
+    }
+
+    if (yearOfBirth < 1901 || yearOfBirth > 2099) {
+      document.getElementById('year-of-birth-error').textContent = 'Year of Birth must be between 1901 and 2099';
+      hasError = true;
+    }
+
+    if (usResident && (zipcode.length !== 5 || isNaN(zipcode))) {
+      document.getElementById('zipcode-error').textContent = 'Zipcode must be a 5-digit number';
+      hasError = true;
+    }
+
+    if (password.length < 8) {
+      document.getElementById('password-error').textContent = 'Password must be at least 8 characters long';
+      hasError = true;
+    }
+
+    if (!pizzaType) {
+      document.getElementById('pizza-type-error').textContent = 'Please select a preferred type of pizza';
+      hasError = true;
+    }
+
+    if (!hasError) {
+      alert('Form submitted successfully!');
+    }
+  });
+</script>
+</body>
+</html>
